@@ -1,8 +1,8 @@
 import asyncio
 
-from chatbot import utils as chat_utils
-from chatbot.bot_connection_instance import BotConnectionInstance
-from chatbot.models import MessageType
+from chatbot.core import utils as chat_utils
+from chatbot.core.bot_connection_instance import BotConnectionInstance
+from chatbot.core.models import MessageType
 
 from .jokes import get_chuck_norris_joke
 

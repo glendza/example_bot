@@ -1,9 +1,9 @@
 import asyncio
 
-from chatbot.bot_connection_instance import BotConnectionInstance
 from chatbot.chuck_norris_bot import ChuckNorrisBot
-from chatbot.config import ChatBotConfig
-from chatbot.log_config import setup_logging
+from chatbot.core import BotConnectionInstance
+from chatbot.core.config import ChatBotConfig
+from chatbot.core.log_config import setup_logging
 
 
 async def amain() -> None:
