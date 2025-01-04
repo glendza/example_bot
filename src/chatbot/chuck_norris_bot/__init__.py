@@ -21,10 +21,6 @@ class ChuckNorrisBot:
 
     async def handle_messages(self):
         async for message in self._bot.messages():
-            parsed_message = chat_utils.parse_message(message)
-            if (
-                parsed_message.message_type == MessageType.CHANNEL_MESSAGE
-                and parsed_message.message == self.JOKE_COMMAND
-            ):
+            if message.message_type == MessageType.CHANNEL_MESSAGE and message.message == self.JOKE_COMMAND:
                 joke = await get_chuck_norris_joke()
-                await self._bot.send_message_to_channel(parsed_message.channel, joke)
+                await self._bot.send_message_to_channel(message.channel, joke)

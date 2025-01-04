@@ -2,6 +2,8 @@ import asyncio
 import logging
 from typing import AsyncGenerator
 
+from chatbot.core.models import ChannelMessage, PrivateMessage, UnclassifiedMessage
+
 from . import utils as chat_utils
 
 logger = logging.getLogger(__name__)
@@ -83,7 +85,7 @@ class BotConnectionInstance:
         """
         await self._outgoing_message_queue.put(f"PRIVMSG {channel} :{message}")
 
-    async def messages(self) -> AsyncGenerator[str, None]:
+    async def messages(self) -> AsyncGenerator[ChannelMessage | PrivateMessage | UnclassifiedMessage, None]:
         """
         Yield messages from the server.
         """
@@ -94,7 +96,7 @@ class BotConnectionInstance:
                 self._incoming_message_queues.append(queue)
             while True:
                 message = await queue.get()
-                yield message
+                yield chat_utils.parse_message(message)
                 queue.task_done()
                 # XXX: Can probably be handled better
                 await asyncio.sleep(0.1)
