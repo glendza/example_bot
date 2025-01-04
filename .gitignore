@@ -1,0 +1,25 @@
+# Python
+*.egg-info
+*.pot
+*.py[co]
+.tox/
+__pycache__
+MANIFEST
+dist/
+docs/_build/
+docs/locale/
+tests/coverage_html/
+tests/.coverage
+build/
+tests/report/
+
+# Virtual environments
+.python-version
+.venv*
+
+# Environment data
+.env*
+!.env.example
+
+# Logs
+*.log

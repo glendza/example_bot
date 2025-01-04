@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "ChatBot",
+        "type": "debugpy",
+        "request": "launch",
+        "module": "chatbot",
+        "console": "integratedTerminal",
+        "justMyCode": false,
+        "django": true,
+        "envFile": "${workspaceFolder}/.env",
+      },
+    ],
+  }
